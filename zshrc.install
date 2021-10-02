@@ -1,0 +1,9 @@
+ 
+post_install() {
+	echo -e "\e[96m\e[1m============================================================\e[21m"
+	echo -e " \e[4m\e[93mINSTALLATION:\e[39m\e[24m To install the \e[1m.zshrc\e[21m for a specific user,"
+	echo -e " run the \e[1m\e[32minstall-zshrc-rollerozxa\e[39m\e[21m command."
+	echo -e " \e[1m\e[91mIf you already have a .zshrc file you should back it up"
+	echo -e " \e[1m\e[91mas it will ask to overwrite your current .zshrc."
+	echo -e "\e[96m\e[1m============================================================\e[21m"
+}
