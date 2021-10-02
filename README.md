@@ -1,9 +1,13 @@
-# ROllerozxa's .zshrc
-This is my personal Zsh config, loosely based off of Manjaro's Zsh config.
+<h1 align="center">ROllerozxa's .zshrc</h1>
+
+<p align="center"><img style="text-align:center" src="https://user-images.githubusercontent.com/60856959/135720852-df50e18a-aa6b-4467-9972-14a1e4d5236f.png"></p>
+
+<p align="center">This is my personal Zsh config, loosely based off of Manjaro's Zsh config.</p>
 
 ## Plugins
 - `zsh-autosuggestions`
 - `zsh-completions`
+
 - `zsh-history-substring-search`
 - `zsh-syntax-highlighting`
 
