@@ -1,12 +1,13 @@
 # Maintainer: ROllerozxa <temporaryemail4meh [gee mail]>
 pkgname=zshrc-rollerozxa
-pkgver=1.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="ROllerozxa's Zsh config"
 arch=(any)
 url="https://github.com/rollerozxa/zshrc"
 license=('MIT')
 depends=('zsh-autosuggestions' 'zsh-completions' 'zsh-history-substring-search' 'zsh-syntax-highlighting')
+optdepends=('lsd: replace ls with lsd')
 options=()
 install="zshrc.install"
 source=("zshrc"
