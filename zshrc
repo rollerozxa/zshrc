@@ -58,6 +58,11 @@ alias cp="cp -i" 											# Confirm before overwriting something
 alias df='df -h' 											# Human-readable sizes
 alias free='free -m' 										# Show sizes in MB
 
+# Custom functions
+remove_orphans() {											# Shortcut for removing orphaned packages
+	pacman -Qtdq | sudo pacman -Rns -
+}
+
 if command -v lsd &> /dev/null
 then
 	alias ls='lsd -l --icon never'
