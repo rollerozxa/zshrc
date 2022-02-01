@@ -66,6 +66,10 @@ remove_orphans() {											# Shortcut for removing orphaned packages
 if command -v lsd &> /dev/null
 then
 	alias ls='lsd -l --icon never'
+	alias lsa='lsd -la --icon never'
+else
+	alias ls='ls -l'
+	alias lsa='ls -la'
 fi
 
 # Theming section
