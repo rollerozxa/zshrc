@@ -115,3 +115,9 @@ RPROMPT="%{$fg[red]%} %(?..[%?])"
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+# Allow for users to add their own stuff by sourcing ~/.config/zsh/extra-zshrc
+EXTRA_ZSHRC_FILE=~/.config/zsh/extra-zshrc
+if [ -f $EXTRA_ZSHRC_FILE ]; then
+	source $EXTRA_ZSHRC_FILE
+fi
