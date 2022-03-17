@@ -21,8 +21,8 @@ zstyle ':completion:*' cache-path ~/.cache/zsh
 HISTFILE=~/.config/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
-export EDITOR=/usr/bin/nano
-export VISUAL=/usr/bin/nano
+export EDITOR=/usr/bin/micro
+export VISUAL=/usr/bin/micro
 WORDCHARS=${WORDCHARS//\/[&.;]}								# Don't consider certain characters part of the word
 
 
@@ -70,6 +70,11 @@ then
 else
 	alias ls='ls -l'
 	alias lsa='ls -la'
+fi
+
+if command -v micro &> /dev/null
+then
+	alias nano='micro'
 fi
 
 # Theming section
