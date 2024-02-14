@@ -18,9 +18,13 @@ zstyle ':completion:*' rehash true							# automatically find new executables in
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
+
+mkdir -p ~/.config/zsh
+
 HISTFILE=~/.config/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
+
 export EDITOR=/usr/bin/micro
 export VISUAL=/usr/bin/micro
 WORDCHARS=${WORDCHARS//\/[&.;]}								# Don't consider certain characters part of the word
@@ -60,7 +64,7 @@ alias free='free -m' 										# Show sizes in MB
 
 # Custom functions
 remove_orphans() {											# Shortcut for removing orphaned packages
-	pacman -Qtdq | sudo pacman -Rns -
+	pacman -Qttdq | sudo pacman -Rns -
 }
 
 if command -v lsd &> /dev/null
@@ -82,16 +86,6 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
-# Color man pages
-export LESS_TERMCAP_mb=$'\E[01;32m'
-export LESS_TERMCAP_md=$'\E[01;32m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;36m'
-export LESS=-R
-
 
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
@@ -105,9 +99,6 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-
-ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%~%<<" #15 char left truncated PWD
-ZSH_THEME_TERM_TITLE_IDLE="%n@%m:%~"
 
 autoload -U add-zsh-hook
 

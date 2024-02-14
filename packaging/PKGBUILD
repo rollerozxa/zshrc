@@ -1,0 +1,45 @@
+# Maintainer: ROllerozxa <rollerozxa@voxelmanip.se>
+pkgname=zshrc-rollerozxa
+pkgver=1.0.6
+pkgrel=1
+pkgdesc="ROllerozxa's Zsh config"
+arch=(any)
+url="https://github.com/rollerozxa/zshrc"
+license=('MIT')
+depends=('zsh')
+optdepends=(
+	'lsd: replace ls with lsd'
+	'micro: replace nano with micro')
+install="../zshrc.install"
+provides=('zsh-autosuggestions' 'zsh-history-substring-search' 'zsh-syntax-highlighting')
+conflicts=('zsh-autosuggestions' 'zsh-history-substring-search' 'zsh-syntax-highlighting')
+
+package() {
+	cd ../../
+	pwd
+
+	install -vDm644 "zshrc" "${pkgdir}/usr/share/rollerozxa/zshrc/.zshrc"
+	install -vDm755 "install-zshrc-rollerozxa.sh" "${pkgdir}/usr/bin/install-zshrc-rollerozxa"
+
+	local zshdir="${pkgdir}/usr/share/zsh"
+
+	# zsh-autosuggestions
+	install -vDm644 "plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+					"${zshdir}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+	# zsh-history-substring-search
+	install -vDm644 "plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" \
+					"${zshdir}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+	# zsh-syntax-highlighting
+	pushd plugins/zsh-syntax-highlighting
+	make PREFIX="/usr" SHARE_DIR="${zshdir}/plugins/zsh-syntax-highlighting" DESTDIR="$pkgdir" install
+	popd
+
+	# cleanup
+	rm -rf "${pkgdir}/usr/share/doc"
+
+	# Make raw tarball for other distros
+	cd packaging
+	tar -C pkg/zshrc-rollerozxa/usr/ -czf zshrc-rollerozxa-${pkgver}.tar.gz .
+}

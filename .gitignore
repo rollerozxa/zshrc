@@ -1,3 +1,5 @@
-pkg/
-src/
-*.pkg.tar.zst
+packaging/pkg/
+packaging/src/
+packaging/*.tar.gz
+packaging/*.pkg.tar.zst
+prompt_preview.png
